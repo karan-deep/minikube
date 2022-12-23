@@ -1,0 +1,14 @@
+# to store configuration settings
+kind: ConfigMap
+
+apiVersion: v1
+
+metadata:
+  # name of the config-map
+  name: asset-management-frontend-configmap
+  # separate namespace to organize cluster's resource
+  namespace: asset
+
+# key-value pair data
+data:
+  SERVER_BASE_URL: "http://asset-management.com"
