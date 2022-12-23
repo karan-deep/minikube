@@ -1,0 +1,44 @@
+# to control a group of similar pods
+kind: Deployment
+
+apiVersion: apps/v1
+
+metadata:
+  # name of the deployment
+  name: asset-management-frontend-deployment
+  # separate namespace to organize cluster's resource
+  namespace: asset
+  # labels for the deployment
+  labels:
+    app: asset-management-frontend-deployment
+
+spec:
+  # copies of pod
+  replicas: 1
+
+  # pods which is needed to be managed
+  selector:
+    matchLabels:
+      app: asset-management-frontend-pod
+
+  template:
+    metadata:
+      # labels for the pod
+      labels:
+        app: asset-management-frontend-pod
+
+    spec:
+      # container specification
+      containers:
+        - name: asset-management-frontend
+          image: karan1801/asset-management-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          # environments variable for the pod
+          env:
+            - name: REACT_APP_SERVER_BASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: asset-management-frontend-configmap
+                  key: SERVER_BASE_URL
