@@ -10,7 +10,7 @@ echo "Please install minikube https://minikube.sigs.k8s.io/docs/drivers/hyperkit
 exit 
 };
 
-making hyperkit the default driver for minikube
+# making hyperkit the default driver for minikube
 if [[ $(minikube config get driver) != 'hyperkit' ]]
 	then
 		minikube config set driver hyperkit
