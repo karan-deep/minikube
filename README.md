@@ -1,6 +1,6 @@
 # Minikube
 
-- Run the **minikube-start.sh** script to create cluster whose services are accessible within it but used ingress to make them accessible.
+- Run the **minikube-start.sh** script to create cluster whose services are accessible within it but used ingress to make them accessible from outside cluster.
 
 - Pods will be pulled image through remote docker public repository. https://hub.docker.com/repositories/karan1801
 
