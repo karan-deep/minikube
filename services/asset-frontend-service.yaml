@@ -10,7 +10,7 @@ metadata:
   namespace: asset
   # labels for the service
   labels:
-    app: asset-management-server-service
+    app: asset-management-frontend-service
 
 spec:
   # service is only accessible from within the cluster
